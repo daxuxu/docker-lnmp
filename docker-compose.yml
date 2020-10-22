@@ -1,0 +1,22 @@
+version: '3'
+
+networks:
+  lnmp_network:
+    external: false
+
+services:
+  nginx-php73:
+    image: nginx-php73
+    environment:
+      - UPLOAD_MAX_SIZE=10G
+
+    volumes:
+      - /webser/www/:/webser/www/
+      - /root/lnmp/rootfs/etc/nginx/selfkey/server.crt:/etc/nginx/ssl/server.crt
+      - /root/lnmp/rootfs/etc/nginx/selfkey/server.key:/etc/nginx/ssl/server.key
+      - /root/sitename.conf:/etc/nginx/conf.d/sitename.conf
+    networks:
+      - lnmp_network
+    ports:
+      - "10443:443"
+      - "10080:80"
