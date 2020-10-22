@@ -1,6 +1,11 @@
 # Docker PHP-FPM 7.3 & Nginx 1.18 on Alpine Linux
 在 [Alpine Linux](https://www.alpinelinux.org/)基础上进行编译,php7.3+nginx1.18,支持yaconf，redis，mysql等，体积仅仅50MB +/-,采用S6/s6-svscan 进行进程管理
 
+
+![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
+![php 7.3.23](https://img.shields.io/badge/php-7.3-brightgreen.svg)
+
+
 ### yaconf 配置目录
 yaconf.directory	/webser/www/code_conf
 
