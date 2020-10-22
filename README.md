@@ -44,7 +44,7 @@ services:
     volumes:
       - /path/to/mycodedir/:/webser/www/
       - /path/to/myssl/server.crt:/etc/nginx/ssl/server.crt
-      - /path/to/myssl/key:/etc/nginx/ssl/server.key
+      - /path/to/myssl/server.key:/etc/nginx/ssl/server.key
       - /path/to/myngxcfg/sitename.conf:/etc/nginx/conf.d/sitename.conf
     networks:
       - lnmp_network
