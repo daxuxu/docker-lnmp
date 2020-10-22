@@ -14,7 +14,30 @@ yaconf.directory	/webser/www/code_conf
 
 
 使用docker-compose启动容器:
+```
+version: '3'
 
+networks:
+  lnmp_network:
+    external: false
+
+services:
+  nginx-php73:
+    image: nginx-php73
+    environment:
+      - UPLOAD_MAX_SIZE=10G
+
+    volumes:
+      - /path/to/mycodedir/:/webser/www/
+      - /path/to/myssl/server.crt:/etc/nginx/ssl/server.crt
+      - /path/to/myssl/key:/etc/nginx/ssl/server.key
+      - /path/to/myngxcfg/sitename.conf:/etc/nginx/conf.d/sitename.conf
+    networks:
+      - lnmp_network
+    ports:
+      - "10443:443"
+	  - "10080:80"
+```
 
 
 
